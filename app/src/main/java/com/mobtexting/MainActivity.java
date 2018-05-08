@@ -21,11 +21,13 @@ public class MainActivity extends AppCompatActivity implements MobtextingInterfa
 
     @Override
     public void onResponse(ServerResponse serverResponse) {
-        Log.d("success",serverResponse.getResponseCode()+"    "+serverResponse.getMessage());
+        Log.d("success",serverResponse.getResponseCode()+"    "+serverResponse.getMessage()+"  "
+        +serverResponse.getStatus());
     }
 
     @Override
     public void onError(ServerResponse serverResponse) {
-        Log.d("failure",serverResponse.getResponseCode()+" "+serverResponse.getMessage());
+        Log.d("failure",serverResponse.getResponseCode()+" "+serverResponse.getMessage()+"  "+
+        serverResponse.getStatus());
     }
 }

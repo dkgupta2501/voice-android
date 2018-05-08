@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements MobtextingInterfa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //create instance of mobtexting and pass parameter as Pilot number, caller number and receiver number
         mobtexting=new Mobtexting(this);
         mobtexting.clickToCall("8030********","8553******","7250******",this);
     }

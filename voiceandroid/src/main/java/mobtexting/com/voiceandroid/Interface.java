@@ -7,7 +7,7 @@ import retrofit2.http.POST;
 
 public interface Interface {
     @FormUrlEncoded
-    @POST("/v1/sms/")
+    @POST("/api.v1/json/")
     Call<ServerResponse> post(
             @Field("api_key") String api_key,
             @Field("method") String method,

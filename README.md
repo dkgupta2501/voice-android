@@ -16,7 +16,38 @@ dependencies {
   implementation 'com.github.mobtexting:voice-android:v1.0.0'
 }
 ```
-#### define _API KEY_ in Manifest file inside Application tag
+#### Define _API KEY_ in Manifest file inside Application tag
 ```xml
   <meta-data android:name="mobtexting.api_key" android:value="@string/mobtextingapikey" />
+```
+#### Usage (How to perform click to call)
+_Pass Pilot number, caller number and receiver number as parameter_
+```java
+public class MainActivity extends AppCompatActivity implements MobtextingInterface{
+    private Mobtexting mobtexting;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mobtexting=new Mobtexting(this);
+        mobtexting.clickToCall("8030********","8553******","7250******",this);
+    }
+
+    @Override
+    public void onResponse(ServerResponse serverResponse) {
+        Log.d("success",serverResponse.getResponseCode()+"    "+serverResponse.getMessage()+"  "
+        +serverResponse.getStatus());
+    }
+
+    @Override
+    public void onError(ServerResponse serverResponse) {
+        Log.d("failure",serverResponse.getResponseCode()+" "+serverResponse.getMessage()+"  "+
+        serverResponse.getStatus());
+    }
+}
+```
+#### Note: _Add Internet persmission in android mainfest file_
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
 ```

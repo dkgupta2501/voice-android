@@ -68,10 +68,12 @@ public class Mobtexting {
             call.enqueue(new Callback<ServerResponse>() {
                 @Override
                 public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                    // response.isSuccessful() is true if the response code is 2xx
                     if (response.isSuccessful()) {
-                        Log.e(TAG, response.body().toString());
-                        mobtextingInterface.onResponse(response.body());
+                        if(response.body().getResponseCode()==200){
+                            mobtextingInterface.onResponse(response.body());
+                        }else{
+                            mobtextingInterface.onError(response.body());
+                        }
                     } else {
                         try {
                             Converter<ResponseBody, ServerResponse> errorConverter = retrofit.responseBodyConverter(ServerResponse.class, new Annotation[0]);

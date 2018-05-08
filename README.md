@@ -1,4 +1,4 @@
-# Click To Call Android SDK (cloud telephony)
+# Click To Call Android SDK (Cloud Telephony)
 _Easy to integrate android sdk to perform click to call operation from Mobtexting_
 ## Getting Started
 ### Gradle

@@ -13,7 +13,7 @@ allprojects {
 **Step 2.** Add the dependency
 ```java
 dependencies {
-  implementation 'com.github.mobtexting:voice-android:v1.0.0'
+  implementation 'com.github.mobtexting:voice-android:v1.0.1'
 }
 ```
 #### Define _API KEY_ in Manifest file inside Application tag

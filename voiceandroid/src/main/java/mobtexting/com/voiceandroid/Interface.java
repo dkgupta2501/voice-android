@@ -13,6 +13,7 @@ public interface Interface {
             @Field("method") String method,
             @Field("pilot_number") String pilot_number,
             @Field("caller") String caller,
-            @Field("receiver") String receiver
+            @Field("receiver") String receiver,
+            @Field("dial_first") String dial_first
     );
 }

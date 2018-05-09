@@ -25,12 +25,21 @@ public class Mobtexting {
     private Retrofit retrofit;
     private Context context;
     private String api_key;
+    private String dialFirst;
 
     /**
      * @param context
      */
     public Mobtexting(Context context) {
         this.context = context;
+    }
+
+    public String getDialFirst() {
+        return dialFirst;
+    }
+
+    public void setDialFirst(String dialFirst) {
+        this.dialFirst = dialFirst;
     }
 
     /**
@@ -63,7 +72,17 @@ public class Mobtexting {
 
             Interface service = retrofit.create(Interface.class);
 
-            Call<ServerResponse> call = service.post(api_key, "click2call", pilot_number, caller,receiver);
+            if(dialFirst!=null&&!dialFirst.equals("")){
+                if(dialFirst.equals("agent")){
+                    dialFirst="agent";
+                }else{
+                    dialFirst="customer";
+                }
+            }else{
+                dialFirst="customer";
+            }
+
+            Call<ServerResponse> call = service.post(api_key, "click2call", pilot_number, caller,receiver,dialFirst);
 
             call.enqueue(new Callback<ServerResponse>() {
                 @Override

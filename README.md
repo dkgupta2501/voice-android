@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity implements MobtextingInterfa
 
         //create instance of mobtexting and pass parameter as Pilot number, caller number and receiver number
         mobtexting=new Mobtexting(this);
+        
+        //if you want to dial first to customer or agent then set dial first as "agent" or "customer"
+        mobtexting.setDialFirst("agent");
+        
         mobtexting.clickToCall("8030********","8553******","7250******",this);
     }
 
